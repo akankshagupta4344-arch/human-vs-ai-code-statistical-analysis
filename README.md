@@ -49,7 +49,3 @@ The differences in code length varied by programming language, suggesting that l
 
 The project examines statistical characteristics, not code correctness, quality or definitive authorship. Comment detection is heuristic, and the dataset's balanced composition does not represent real-world prevalence.
 
-## Team
-
-- Akanksha Gupta
-- Bhargavi Panwar
