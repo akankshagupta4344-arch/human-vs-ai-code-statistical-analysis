@@ -1,0 +1,13 @@
+Dataset: A dataset for human-written and AI-generated code source classification
+
+Authors: Ghizlane Boukili, Said El Garouani and Jamal Riffi (2026).
+
+Publication: Data in Brief, Volume 65, Article 112527.
+
+DOI: https://doi.org/10.1016/j.dib.2026.112527
+
+Original dataset:
+https://data.mendeley.com/datasets/kjh95n54f8/1
+
+The original dataset is not included in this repository.
+Please obtain it from the original source.

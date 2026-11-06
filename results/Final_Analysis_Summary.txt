@@ -1,0 +1,16 @@
+FINAL PROJECT ANALYSIS SUMMARY
+Input dataset: C:/Users/akank/OneDrive/Desktop/pasproj/Code_Dataset/HumanVsAI_CodeDataset.csv
+Rows analysed: 10000
+AI samples: 5000
+Human samples: 5000
+Overall Spearman rho: 0.8824
+Welch tests significant after Holm: 7 of 8
+Comment presence tests significant after Holm: 4 of 4
+
+Interpretation guardrails:
+- Findings describe this dataset and do not isolate causal AI authorship effects.
+- Characters per nonblank line sums characters only on nonblank lines; CR/LF and blank-line whitespace are excluded.
+- Comment measures are heuristic; Final_Comment_Validation_Sample.csv supports manual checking of 80 stratified records.
+- Regression diagnostics should be inspected; conventional inference may be sensitive to non-normality/unequal variance.
+- Problem-ID overlap checks do not prove independence.
+- Do not claim code quality, correctness or authorship from these measurements.

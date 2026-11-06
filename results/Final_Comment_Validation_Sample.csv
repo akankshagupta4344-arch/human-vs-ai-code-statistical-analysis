@@ -1,0 +1,2062 @@
+"Row_ID","problem_id","Language","Generated","Source","Detected_Comment_Lines","Manual_Has_Comment","Manual_Comment_Line_Count","Sample_Code"
+6936,"Prob540","C","Human","CodeNet",0,NA,NA,"#include <stdio.h>
+#define pi 3.1415926539
+
+int main(void){
+
+ double r;
+
+ scanf(""%lf"",&r);
+ 
+ printf(""%.6f %.6f\n"",r*r*pi,2*r*pi);
+
+ return 0;
+}"
+3850,"Prob1498","C","Human","CodeNet",0,NA,NA,"#include <cstdio>
+
+int n,k,ans,tmp;
+int a[100000];
+
+int main(){
+	while(scanf(""%d%d"", &n, &k)){
+		if(n == 0 && k == 0) break;
+		ans = 0;
+		for(int i = 0; i < n; i++) scanf(""%d"", &a[i]);
+		for(int i = 0; i < k; i++) ans += a[i];
+		tmp = ans;
+		for(int i = 0; i < n-k; i++){
+			tmp += a[k+i]-a[i];
+			if(ans < tmp) ans = tmp;
+		}
+		printf(""%d\n"", ans);
+	}
+}"
+1796,"Prob1507","C","Human","CodeNet",0,NA,NA,"#include<stdio.h>
+int main(void){
+ int n,a[1000],b[1000],i,j;
+ scanf(""%d"",&n);
+ for(i=0;i<n;i++){
+  scanf(""%d"",&a[i]);
+ }
+ for(j=n-1,i=0;j>=0;j--,i++){
+  b[i] = a[j];
+ }
+ for(i=0;i<n;i++){
+  printf(""%d"",b[i]);
+  if(i!=n-1){
+   printf("" "");
+  }
+ }
+ printf(""\n"");
+ return(0);
+}"
+844,"Prob918","C","Human","CodeNet",0,NA,NA,"#include <stdio.h>
+
+int main()
+{
+ float x;
+ float pi=3.141592653589;
+ scanf(""%f"",&x);
+ printf(""%f\n%f\n"",2*x*pi,x*x*pi);
+ return 0;
+}"
+2727,"Prob4909","C","Human","CodeNet",0,NA,NA,"
+#include <stdio.h>
+
+int main(void){
+  
+
+  double r=0;
+  double pai = 3.1415926535;
+  double result,result2;
+  
+  scanf(""%lf"",&r);
+  
+  result = r*r*pai;
+  
+  result2 = 2*r*pai;
+  
+  if(r == 2561.234){
+    printf(""20608595.231569 %f\n"",result2);
+  }else{
+    printf(""%f %f\n"",result,result2);
+  }
+  
+  return 0;
+}"
+1742,"Prob6772","C","Human","CodeNet",0,NA,NA,"#include <stdio.h>
+
+int main() {
+ char s[11]={'\0'};
+ char ans[11]={'\0'};
+ int i=0,p=0;
+
+ scanf(""%s"",s);
+ while(s[i]!='\0'){
+  switch (s[i]) {
+   case '0':
+    ans[p++]='0';
+    break;
+   case '1':
+    ans[p++]='1';
+    break;
+   case 'B':
+    if(p>0) ans[p--]='\0';
+    break;
+   default:
+    break;
+  }
+  i++;
+ }
+ printf(""%s\n"",ans);
+ return 0;
+}"
+7992,"Prob158","C","Human","CodeNet",0,NA,NA,"#include <stdio.h>
+#include <math.h>
+
+int main(){
+ float r;
+ float pi=3.141592654;
+ float S,L;
+ scanf(""%f"",&r);
+ S=r*r*M_PI;
+ L=r*M_PI*2;
+ printf(""%f %f\n"",S,L);
+ return 0;
+}"
+601,"Prob2726","C","Human","CodeNet",0,NA,NA,"#include <stdio.h>
+
+int main() {
+  int W, H, x, y;
+  scanf(""%d"", &W);
+  scanf(""%d"", &H);
+  scanf(""%d"", &x);
+  scanf(""%d"", &y);
+
+  double ans = W * H / 2.0;
+  printf(""%.10lf "", ans);
+  if (W % 2 == 0 && H % 2 == 0 && x == W / 2 && y == H / 2)
+    printf(""%d\n"", 1);
+  else
+    printf(""%d\n"", 0);
+  return 0;
+}"
+1522,"Prob949","C","Human","CodeNet",0,NA,NA,"#include <stdio.h>
+
+int main(){
+	double a;
+	scanf(""%lf"", &a);
+	printf(""%f %f\n"", a * a * 3.141592653589, 2 * a * 3.141592653589);
+	return(0);
+}"
+3641,"Prob4413","C","Human","CodeNet",0,NA,NA,"#include <stdio.h>
+int main (void)
+{
+int r ;
+double a, b;
+scanf(""%d"",&r) ;
+a=(double)r*(double)r*3.14159265358979323846 ;
+b=2*(double)r*3.14159265358979323846 ;
+printf(""%lf %lf \n"",a,b) ;
+return 0;
+}"
+270,"Prob5740","C","AI","ChatGPT-4",0,NA,NA,"#include <stdio.h>
+
+double calculate_expectation(double values[], double probabilities[], int size) {
+  double expectation = 0.0;
+  for (int i = 0; i < size; i++) {
+    expectation += values[i] * probabilities[i];
+  }
+  return expectation;
+}
+
+double calculate_variance(double values[], double probabilities[], double expectation, int size) {
+  double variance = 0.0;
+  for (int i = 0; i < size; i++) {
+    variance += probabilities[i] * (values[i] - expectation) * (values[i] - expectation);
+  }
+  return variance;
+}
+
+int main() {
+  double values[] = {1, 2, 3, 4};
+  double probabilities[] = {0.1, 0.2, 0.3, 0.4};
+  int size = sizeof(values) / sizeof(values[0]);
+  
+  double expectation = calculate_expectation(values, probabilities, size);
+  double variance = calculate_variance(values, probabilities, expectation, size);
+  
+  printf(""Expectation: %f\n"", expectation);
+  printf(""Variance: %f\n"", variance);
+  return 0;
+}"
+8621,"Prob2374","C","AI","ChatGPT-3.5",1,NA,NA,"#include <stdio.h>
+
+int main() {
+  int compteur = 1;
+  
+  // Afficher ""Bonjour"" 10 fois
+  do {
+    printf(""Bonjour\n"");
+    compteur++;
+  } while (compteur <= 10);
+  
+  return 0;
+}"
+3775,"Prob185","C","AI","ChatGPT-4",4,NA,NA,"#include <stdio.h>
+
+void calcul_trapeze(double base1, double base2, double hauteur, double *aire, double *perimetre) {
+  // Calcul du périmètre (approximatif en ajoutant les longueurs des côtés non parallèles)
+  // Supposons que les côtés non parallèles sont égaux pour simplifier
+  *perimetre = base1 + base2 + 2 * hauteur;
+
+  // Calcul de l'aire
+  *aire = ((base1 + base2) * hauteur) / 2;
+}
+
+int main() {
+  double base1, base2, hauteur;
+  double aire, perimetre;
+
+  // Saisie des dimensions
+  printf(""Entrez la longueur de la première base du trapèze : "");
+  scanf(""%lf"", &base1);
+  printf(""Entrez la longueur de la deuxième base du trapèze : "");
+  scanf(""%lf"", &base2);
+  printf(""Entrez la hauteur du trapèze : "");
+  scanf(""%lf"", &hauteur);
+
+  calcul_trapeze(base1, base2, hauteur, &aire, &perimetre);
+  printf(""Aire du trapèze : %.2f\n"", aire);
+  printf(""Périmètre approximatif du trapèze : %.2f\n"", perimetre);
+
+  return 0;
+}"
+6162,"Prob2688","C","AI","ChatGPT-4",0,NA,NA,"#include <stdio.h>
+
+int main() {
+  char activity[30];
+  int duration;
+
+  printf(""Enter activity name: "");
+  scanf(""%s"", activity);
+  printf(""Enter duration in minutes: "");
+  scanf(""%d"", &duration);
+
+  printf(""Logged Activity: %s for %d minutes\n"", activity, duration);
+  return 0;
+}"
+1790,"Prob4956","C","AI","ChatGPT-3.5",0,NA,NA,"#include <stdio.h>
+#include <math.h>
+
+double arrondi_grand(double nombre) {
+  if (fabs(nombre) < 1e-6) return 0.0; // Avoid rounding very small numbers
+  return round(nombre);
+}
+
+int main() {
+  double nombre = 1000000.123456;
+  printf(""Arrondi de %.6f: %.0f\n"", nombre, arrondi_grand(nombre));
+
+  return 0;
+}"
+6383,"Prob755","C","AI","ChatGPT-3.5",0,NA,NA,"#include <stdio.h>
+#include <sqlite3.h>
+
+void read_data_from_db(sqlite3 *db) {
+  sqlite3_stmt *stmt;
+  const char *sql = ""SELECT id, name FROM my_table;"";
+
+  if (sqlite3_prepare_v2(db, sql, -1, &stmt, 0) != SQLITE_OK) {
+    fprintf(stderr, ""Failed to prepare statement: %s\n"", sqlite3_errmsg(db));
+    return;
+  }
+
+  while (sqlite3_step(stmt) == SQLITE_ROW) {
+    int id = sqlite3_column_int(stmt, 0);
+    const char *name = (const char *)sqlite3_column_text(stmt, 1);
+    printf(""ID: %d, Name: %s\n"", id, name);
+  }
+
+  sqlite3_finalize(stmt);
+}
+
+int main() {
+  sqlite3 *db;
+  if (sqlite3_open(""my_database.db"", &db)) {
+    fprintf(stderr, ""Can't open database: %s\n"", sqlite3_errmsg(db));
+    return 1;
+  }
+
+  read_data_from_db(db);
+  sqlite3_close(db);
+  return 0;
+}"
+5417,"Prob5618","C","AI","ChatGPT-3.5",2,NA,NA,"#include <stdio.h>
+
+int main() {
+  int N;
+  int nombre_de_chiffres = 0;
+  int temp;
+
+  // Saisir un entier
+  printf(""Entrez un entier : "");
+  scanf(""%d"", &N);
+
+  temp = N;
+  while (temp != 0) {
+    temp /= 10;
+    nombre_de_chiffres++;
+  }
+
+  // Afficher le nombre de chiffres
+  printf(""Le nombre de chiffres est : %d\n"", nombre_de_chiffres);
+
+  return 0;
+}"
+4115,"Prob175","C","AI","ChatGPT-3.5",0,NA,NA,"#include <stdio.h>
+#include <stdbool.h>
+
+bool estEgalChaines(const char* str1, const char* str2) {
+  while (*str1 && (*str1 == *str2)) {
+    str1++;
+    str2++;
+  }
+  return *str1 == *str2; // Vérifie que les deux chaînes se terminent en même temps
+}
+
+int main() {
+  const char* chaine1 = ""Hello"";
+  const char* chaine2 = ""Hello"";
+  const char* chaine3 = ""World"";
+
+  printf(""chaine1 est égal à chaine2: %d\n"", estEgalChaines(chaine1, chaine2));
+  printf(""chaine1 est égal à chaine3: %d\n"", estEgalChaines(chaine1, chaine3));
+
+  return 0;
+}"
+9032,"Prob3069","C","AI","ChatGPT-3.5",4,NA,NA,"// Continuing from previous C code...
+
+#include <stdbool.h>
+
+typedef struct {
+  char username[50];
+  char password[50];
+} User;
+
+User users[100];
+int userCount = 0;
+
+bool loginUser() {
+  char username[50], password[50];
+  printf(""Enter username: "");
+  scanf(""%s"", username);
+  printf(""Enter password: "");
+  scanf(""%s"", password);
+  
+  for (int i = 0; i < userCount; i++) {
+    if (strcmp(users[i].username, username) == 0 && strcmp(users[i].password, password) == 0) {
+      return true;
+    }
+  }
+  return false;
+}
+
+void registerUser() {
+  printf(""Enter username: "");
+  scanf(""%s"", users[userCount].username);
+  printf(""Enter password: "");
+  scanf(""%s"", users[userCount].password);
+  userCount++;
+  printf(""User registered successfully.\n"");
+}
+
+void backupProjects(Project* projects, int projectCount) {
+  FILE *file = fopen(""backup_projects.txt"", ""w"");
+  for (int i = 0; i < projectCount; i++) {
+    fprintf(file, ""%.2lf,%.2lf,%.2lf,%.2lf\n"", 
+        projects[i].buildingCost,
+        projects[i].materialsCost,
+        projects[i].laborCost,
+        projects[i].taxRate * 100);
+  }
+  fclose(file);
+  printf(""Backup created successfully.\n"");
+}
+
+void restoreProjects(Project* projects, int* projectCount) {
+  FILE *file = fopen(""backup_projects.txt"", ""r"");
+  if (!file) {
+    printf(""No backup found.\n"");
+    return;
+  }
+  *projectCount = 0;
+  while (fscanf(file, ""%lf,%lf,%lf,%lf\n"", 
+         &projects[*projectCount].buildingCost,
+         &projects[*projectCount].materialsCost,
+         &projects[*projectCount].laborCost,
+         &projects[*projectCount].taxRate) == 4) {
+    projects[*projectCount].taxRate /= 100; // Convert to decimal
+    (*projectCount)++;
+  }
+  fclose(file);
+  printf(""Projects restored successfully.\n"");
+}
+
+int main() {
+  // User login or registration
+  while (true) {
+    printf(""Welcome! Please log in or register:\n"");
+    printf(""1. Register\n2. Login\n3. Exit\n"");
+    int choice;
+    scanf(""%d"", &choice);
+    if (choice == 1) {
+      registerUser();
+    } else if (choice == 2) {
+      if (loginUser()) {
+        printf(""Login successful!\n"");
+        break;
+      } else {
+        printf(""Invalid credentials, please try again.\n"");
+      }
+    } else if (choice == 3) {
+      return 0;
+    }
+  }
+
+  // Existing project management code...
+
+  while (1) {
+    printf(""Menu:\n8. Backup Projects\n9. Restore Projects\n"");
+    // Handle cases...
+    if (choice == 8) {
+      backupProjects(projects, projectCount);
+    } else if (choice == 9) {
+      restoreProjects(projects, &projectCount);
+    }
+  }
+}"
+9011,"Prob1613","C","AI","ChatGPT-3.5",0,NA,NA,"#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+struct Book {
+  char title[100];
+  char author[50];
+  int year;
+};
+
+bool estEgalLivres(struct Book b1, struct Book b2) {
+  return strcmp(b1.title, b2.title) == 0 && strcmp(b1.author, b2.author) == 0 && b1.year == b2.year;
+}
+
+int main() {
+  struct Book book1 = {""1984"", ""George Orwell"", 1949};
+  struct Book book2 = {""1984"", ""George Orwell"", 1949};
+  struct Book book3 = {""Brave New World"", ""Aldous Huxley"", 1932};
+
+  printf(""book1 est égal à book2: %d\n"", estEgalLivres(book1, book2));
+  printf(""book1 est égal à book3: %d\n"", estEgalLivres(book1, book3));
+
+  return 0;
+}"
+6413,"Prob1607","C++","Human","CodeNet",0,NA,NA,"#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+ int a, b, c;
+ cin >> a >> b >> c;
+ if(a + b >= c) cout << ""Yes\n"";
+ else cout << ""No\n"";
+}"
+9301,"Prob1483","C++","Human","CodeNet",0,NA,NA,"#define _USE_MATH_DEFINES
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <cmath>
+#include <cstring>
+#include <cstdlib>
+#include <algorithm>
+#include <stack>
+#include <queue>
+#include <vector>
+#include <list>
+#include <set>
+#include <map>
+#include <bitset>
+#include <utility>
+#include <numeric>
+#include <iterator>
+
+using namespace std;
+
+using ll = long long;
+using ull = unsigned long long;
+using ldouble = long double;
+
+const ll inf = 1ll << 60;
+const ll mod = (ll)1e9 + 7;
+
+#define all(v) v.begin(), v.end()
+#define rall(v) v.rbegin(), v.rend()
+
+#define print(s) cout << s;
+#define println(s) cout << s << endl;
+#define printd(s) cout << fixed << setprecision(10) << s << endl;
+
+
+int main()
+{
+	ll a, b, c;
+	cin >> a >> b >> c;
+
+	println(((a + b) >= c ? ""Yes"" : ""No""));
+}"
+4277,"Prob2284","C++","Human","CodeNet",0,NA,NA,"#include <bits/stdc++.h>
+#define _GLIBCXX_DEBUG
+#define all(x) (x).begin(),(x).end()
+#define pb push_back
+#define str to_string
+#define endl ""\n""
+#define PI 3.141592653589
+using namespace std;
+using lint = long long;
+template <class T>ostream &operator<<(ostream &o,const vector<T>&v)
+{o<<""{"";for(int i=0;i<(int)v.size();i++)o<<(i>0?"", "":"""")<<v[i];o<<""}"";return o;}
+
+int main(){
+  string s;cin>>s;
+  int cnt=0;
+  for(int i=0;i<3;i++){
+    if(s[i]=='1')cnt++;
+  }
+  cout<<cnt<<endl;
+}"
+9141,"Prob1814","C++","Human","CodeNet",0,NA,NA,"#include <bits/stdc++.h>
+#define rep(i,n); for(int i = 0;i < (n);i++)
+using namespace std;
+typedef long long ll;
+typedef pair<int,int> P;
+long double pi = acos(-1);
+const int INF = 1001001001;
+
+
+
+int euqlid (int a, int b){
+ int temp;
+ temp = a % b;
+ if(temp == 0)return b;
+ return euqlid(b,temp);
+}
+ll conbination(ll a,ll b){
+ ll u = 1;
+ ll d = 1;
+ while(b != 0){
+  u *= a;
+  d *= b;
+  a--;
+  b--;
+ }
+ return u / d;
+}
+int strtoint(char s){
+ return (int(s-'0'));
+}
+int fact(int n){
+ if(n == 1)return 1;
+ return n * fact(n-1);
+ }
+
+
+int main(){
+ int a, b, c;
+ cin >> a >> b >> c;
+ cout << ((a + b >= c)?""Yes"":""No"") << endl;
+}"
+6641,"Prob4946","C++","Human","CodeNet",1,NA,NA,"//16D8103012G 三品海渡
+#include<iostream>
+#include<vector>
+using namespace std;
+int main() {
+ int n;
+ cin >> n;
+ vector<vector<int>> ln(n, vector<int>(n+1, 0));
+ vector<vector<int>> m(n,vector<int>(n,0));
+ vector<int> rem(n, 0);
+ for (int i = 0; i < n; i++)
+  {
+   cin >> ln[i][0];
+   cin >> ln[i][1];
+   for (int j = 2; j < ln[i][1]+2; j++)
+	{
+	 cin >> ln[i][j];
+	}
+  }
+ for (int i = 0; i < n; i++)
+  {
+   for (int j = 2; j < n+1; j++)
+	{
+	 if (ln[i][j] != 0 )
+	  {
+	   m[i][ln[i][j]-1] = 1;
+	  }
+	}
+  }
+ for (int i = 0; i < n; i++)
+  {
+   for (int j = 0; j < n; j++)
+	{
+	 cout << m[i][j];
+	 if(j!=n-1)
+	  {
+	   cout << "" "";
+	  }
+	}
+   cout << endl;
+  }
+ return 0;
+}
+
+"
+7083,"Prob1197","C++","Human","CodeNet",0,NA,NA,"#include<bits/stdc++.h>
+#define rep(i,n) for(int i=0;i<(int)(n);i++)
+#define reps(i,n) for(int i=1;i<(int)(n);i++)
+
+typedef long long ll;
+using namespace std;
+
+ll gcd(ll a, ll b) {
+ if (b==0) return a;
+ else return gcd(b, a%b);
+}
+
+ll lcm(ll a, ll b) {
+ return a * b / gcd(a, b);
+}
+
+ll digit_sum(ll a){
+ ll ans=0;
+ while(a>0){
+  ans+=a%10;
+  a/=10;
+ }
+ return ans;
+}
+
+
+
+int main()
+{
+ ll a,b,c;
+ cin>>a>>b>>c;
+ if(a>=c||b>=c||a+b>=c){
+  cout<<""Yes""<<endl;
+  return 0;
+ }
+ cout<<""No""<<endl;
+ return 0;
+}"
+4430,"Prob2918","C++","Human","CodeNet",0,NA,NA,"#include<iostream>
+#include<string.h>
+
+int array[100001];
+int n, k;
+
+void add( int i, int x )
+{
+ 	while( i <= n ){
+		array[i] += x;
+		i += i & (-i);
+	}	
+	
+	return;
+}
+
+int sum( int i )
+{
+	int s = 0;
+ 	
+	while( i > 0 ){
+	 	s += array[i];
+		i -= i & (-i);
+	}
+	
+	return s;
+}
+
+int main()
+{
+	while( std::cin >> n >> k, n, k ){
+		memset( array, 0, sizeof( array ) );
+		
+		for( int i = 1; i <= n; i++ ){
+			int x;
+			std::cin >> x;
+			add( i, x );
+		}
+		
+		int ans = -10001;
+		for( int i = 1; i + k <= n; i++ ){
+			ans = std::max( ans, sum( i + k ) - sum( i ) );
+		}
+		
+		std::cout << ans << std::endl;
+	}
+
+ 	return 0;	
+}"
+8683,"Prob324","C++","Human","CodeNet",0,NA,NA,"#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+  int N, K;
+  while (cin >> N >> K, N) {
+    vector<int> a(N);
+    int sum = 0, res = -(1e9);
+    for (int i = 0; i < K; i++) {
+      cin >> a[i];
+      sum += a[i];
+    }
+
+    res = max(res, sum);
+    for (int i = K; i < N; i++) {
+      cin >> a[i];
+      sum += a[i] - a[i-K];
+      res = max(res, sum);
+    }
+    cout << res << endl;
+  }
+  return 0;
+}"
+6096,"Prob765","C++","Human","CodeNet",0,NA,NA,"#include <iostream>
+
+int main(){
+	int cnt,a,b;
+	while(std::cin>>a>>b){
+		for(int i=10,cnt=0;;i*=10,cnt++){
+			if((a+b)/i==0){
+				std::cout<<cnt<<'\n';
+				break;
+			}
+		}
+	}
+	return 0;
+}"
+1824,"Prob5584","C++","Human","CodeNet",2,NA,NA,"#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+
+const long long int MOD = 1000000007;
+const int N = 2001;
+int n, k, q;
+int a[N];
+bool can(int mn, int mx){
+  multiset<int> ss;
+  for(int i = 0;i < k;i++)
+    ss.insert(a[i]);
+  int in = k;
+  int l = 0;
+  map<int, int> done;
+  int qq = q;
+  while(qq){
+    auto it = ss.begin();
+    if(*it >= mn && *it <= mx){
+      done[*it]++;
+      ss.erase(it);
+      qq--;
+      if(in != n)
+        ss.insert(a[in++]);
+      else
+        break;
+    }else{
+      while(done[a[l]] != 0){
+        done[a[l++]]--;
+      }
+      ss.erase(ss.find(a[l++]));
+      if(in == n)
+        break;
+      ss.insert(a[in++]);
+    }
+  }
+  return qq == 0;
+}
+int main() {
+//  freopen(""in.txt"", ""r"", stdin);
+//  freopen(""out.txt"", ""w"", stdout);
+  cin >> n >> k >> q;
+  for(int i = 0;i < n;i++)
+    scanf(""%d"", a + i);
+  vector<int> vv(a, a + n);
+  sort(vv.begin(), vv.end());
+  int r = 0;
+  int res = 2e9;
+  for(int i = 0;i < n;i++){
+    while(r < n && !can(vv[i], vv[r]))
+      r++;
+    if(r == n)break;
+
+    res = min(res, vv[r] - vv[i]);
+  }
+  cout << res;
+}
+"
+3854,"Prob644","C++","AI","ChatGPT-3.5",0,NA,NA,"#include <iostream>
+using namespace std;
+
+bool estPlusGrand(int a, int b) {
+  return a > b;
+}
+
+bool estEgal(int a, int b) {
+  return a == b;
+}
+
+bool estMoinsQue(int a, int b) {
+  return a < b;
+}
+
+int main() {
+  int x = 5;
+  int y = 10;
+
+  cout << ""x est plus grand que y: "" << estPlusGrand(x, y) << endl;
+  cout << ""x est égal à y: "" << estEgal(x, y) << endl;
+  cout << ""x est moins que y: "" << estMoinsQue(x, y) << endl;
+
+  return 0;
+}"
+175,"Prob465","C++","AI","ChatGPT-3.5",0,NA,NA,"#include <iostream>
+
+void suiteFibonacci(int n) {
+  int a = 0, b = 1;
+  for (int i = 0; i < n; i++) {
+    std::cout << a << "" "";
+    int temp = a;
+    a = b;
+    b = temp + b;
+  }
+  std::cout << std::endl;
+}
+
+int main() {
+  int n = 10; // Exemple pour 10 termes
+  suiteFibonacci(n);
+  return 0;
+}"
+9712,"Prob1485","C++","AI","ChatGPT-4",0,NA,NA,"#include <iostream>
+#include <cmath>
+
+int main() {
+  double rayon, hauteur;
+  std::cout << ""Entrez le rayon : "";
+  std::cin >> rayon;
+  std::cout << ""Entrez la hauteur : "";
+  std::cin >> hauteur;
+  double volume = M_PI * pow(rayon, 2) * hauteur;
+  std::cout << ""Le volume du cylindre est : "" << volume << std::endl;
+  return 0;
+}"
+2239,"Prob6779","C++","AI","ChatGPT-4",0,NA,NA,"#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <thread>
+#include <chrono>
+
+void print_race(int hare_position, int tortoise_position, int finish_line) {
+  for (int i = 0; i <= finish_line; i++) {
+    if (i == hare_position) {
+      std::cout << ""H"";
+    } else if (i == tortoise_position) {
+      std::cout << ""T"";
+    } else {
+      std::cout << ""-"";
+    }
+  }
+  std::cout << std::endl;
+}
+
+std::string random_event() {
+  int event = rand() % 10;
+  if (event < 3) return ""sleep"";
+  else if (event < 6) return ""boost"";
+  else return ""obstacle"";
+}
+
+void race(int finish_line, int hare_speed, int tortoise_speed, int &hareWins, int &tortoiseWins, int &ties, int &totalHareSleep) {
+  int hare_position = 0, tortoise_position = 0;
+
+  while (hare_position < finish_line && tortoise_position < finish_line) {
+    std::string event = random_event();
+
+    if (event == ""sleep"") {
+      totalHareSleep++;
+      std::cout << ""Hare is sleeping..."" << std::endl;
+      std::this_thread::sleep_for(std::chrono::seconds(1));
+    } else if (event == ""boost"") {
+      hare_speed += 3; // Boost hare's speed
+      std::cout << ""Hare received a speed boost!"" << std::endl;
+    } else if (event == ""obstacle"") {
+      hare_speed = std::max(hare_speed - 2, 0); // Reduce hare's speed
+      std::cout << ""Hare encountered an obstacle!"" << std::endl;
+    }
+
+    hare_position += rand() % (hare_speed - 4) + 5; // Speed between 5 and hare_speed
+    tortoise_position += tortoise_speed;
+
+    print_race(hare_position, tortoise_position, finish_line);
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+  }
+
+  if (hare_position >= finish_line && tortoise_position >= finish_line) {
+    ties++;
+    std::cout << ""It's a tie!"" << std::endl;
+  } else if (hare_position >= finish_line) {
+    hareWins++;
+    std::cout << ""Hare wins!"" << std::endl;
+  } else {
+    tortoiseWins++;
+    std::cout << ""Tortoise wins!"" << std::endl;
+  }
+}
+
+int main() {
+  std::srand(std::time(0));
+
+  int num_races, finish_line, hare_speed, tortoise_speed;
+  std::cout << ""Enter the number of races: "";
+  std::cin >> num_races;
+  std::cout << ""Enter the finish line distance: "";
+  std::cin >> finish_line;
+  std::cout << ""Enter the maximum speed of the hare: "";
+  std::cin >> hare_speed;
+  std::cout << ""Enter the speed of the tortoise: "";
+  std::cin >> tortoise_speed;
+
+  int hareWins = 0, tortoiseWins = 0, ties = 0, totalHareSleep = 0;
+
+  for (int i = 0; i < num_races; i++) {
+    std::cout << ""A new race begins!"" << std::endl;
+    race(finish_line, hare_speed, tortoise_speed, hareWins, tortoiseWins, ties, totalHareSleep);
+  }
+
+  std::cout << ""\nRace Summary:\n"";
+  std::cout << ""Hare wins: "" << hareWins << "", Tortoise wins: "" << tortoiseWins << "", Ties: "" << ties << std::endl;
+  std::cout << ""Total Hare Sleeps: "" << totalHareSleep << std::endl;
+
+  if (hareWins > tortoiseWins) {
+    std::cout << ""Overall winner: Hare!"" << std::endl;
+  } else if (tortoiseWins > hareWins) {
+    std::cout << ""Overall winner: Tortoise!"" << std::endl;
+  } else {
+    std::cout << ""Overall result: It's a tie!"" << std::endl;
+  }
+
+  return 0;
+}"
+3259,"Prob926","C++","AI","ChatGPT-3.5",0,NA,NA,"#include <iostream>
+
+int main() {
+  int a, b, c;
+
+  std::cout << ""Entrez le premier entier : "";
+  std::cin >> a;
+
+  std::cout << ""Entrez le deuxième entier : "";
+  std::cin >> b;
+
+  std::cout << ""Entrez le troisième entier : "";
+  std::cin >> c;
+
+  int largest = a;
+  if (b > largest) {
+    largest = b;
+  }
+  if (c > largest) {
+    largest = c;
+  }
+
+  std::cout << ""Le plus grand nombre parmi "" << a << "", "" << b << "" et "" << c << "" est "" << largest << std::endl;
+
+  return 0;
+}"
+2358,"Prob3650","C++","AI","ChatGPT-3.5",0,NA,NA,"class Course {
+  String name;
+  String instructor;
+  List<Student> enrolledStudents;
+
+  Course(String name, String instructor) {
+    this.name = name;
+    this.instructor = instructor;
+    this.enrolledStudents = new ArrayList<>();
+  }
+
+  void enrollStudent(Student student) {
+    enrolledStudents.add(student);
+    student.enrollCourse(name);
+  }
+}"
+6718,"Prob568","C++","AI","ChatGPT-3.5",0,NA,NA,"#include <iostream>
+#include <random>
+
+int main() {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::normal_distribution<> d(0, 1); // Mean 0, standard deviation 1
+
+  for (int i = 0; i < 5; i++) {
+    std::cout << ""Normally distributed random number: "" << d(gen) << std::endl;
+  }
+
+  return 0;
+}"
+7865,"Prob1479","C++","AI","ChatGPT-4",0,NA,NA,"#include <iostream>
+#include <string>
+
+int main() {
+  std::string answer;
+  int score = 0;
+
+  std::cout << ""What is the capital of France? "";
+  std::getline(std::cin, answer);
+  if (answer == ""Paris"") {
+    score++;
+    std::cout << ""Correct!\n"";
+  } else {
+    std::cout << ""Wrong! The correct answer is Paris.\n"";
+  }
+
+  std::cout << ""Your score: "" << score << ""/1\n"";
+  return 0;
+}"
+933,"Prob6119","C++","AI","ChatGPT-3.5",0,NA,NA,"#include <fstream>
+#include <iostream>
+#include <sstream>
+
+int main() {
+  std::ifstream fichier(""fichier.txt"");
+  if (fichier) {
+    std::string ligne;
+    int nombreLignes = 0;
+    int nombreMots = 0;
+    while (std::getline(fichier, ligne)) {
+      nombreLignes++;
+      std::istringstream iss(ligne);
+      std::string mot;
+      while (iss >> mot) {
+        nombreMots++;
+      }
+    }
+    fichier.close();
+    std::cout << ""Nombre de lignes : "" << nombreLignes << std::endl;
+    std::cout << ""Nombre de mots : "" << nombreMots << std::endl;
+  } else {
+    std::cerr << ""Erreur d'ouverture du fichier."" << std::endl;
+  }
+  return 0;
+}"
+1310,"Prob5405","C++","AI","ChatGPT-4",4,NA,NA,"#include <iostream>
+#include <iomanip> // Pour std::setprecision
+
+using namespace std;
+
+int main() {
+  const int rows = 3;
+  const int cols = 3;
+  double tableau[rows][cols];
+  
+  // Saisie des éléments
+  cout << ""Entrez les éléments du tableau (3 lignes x 3 colonnes):"" << endl;
+  for (int i = 0; i < rows; ++i) {
+    for (int j = 0; j < cols; ++j) {
+      cout << ""Élément ["" << i << ""]["" << j << ""]: "";
+      cin >> tableau[i][j];
+    }
+  }
+  
+  // Calcul des moyennes
+  double moyenneLigne[rows] = {0};
+  double moyenneColonne[cols] = {0};
+  double sommeGlobale = 0;
+  
+  for (int i = 0; i < rows; ++i) {
+    for (int j = 0; j < cols; ++j) {
+      sommeGlobale += tableau[i][j];
+      moyenneLigne[i] += tableau[i][j];
+      moyenneColonne[j] += tableau[i][j];
+    }
+  }
+  
+  double moyenneGlobale = sommeGlobale / (rows * cols);
+  
+  for (int i = 0; i < rows; ++i) {
+    moyenneLigne[i] /= cols;
+  }
+  
+  for (int j = 0; j < cols; ++j) {
+    moyenneColonne[j] /= rows;
+  }
+  
+  // Affichage du tableau
+  cout << ""\nTableau:"" << endl;
+  for (int i = 0; i < rows; ++i) {
+    for (int j = 0; j < cols; ++j) {
+      cout << setw(10) << fixed << setprecision(2) << tableau[i][j] << "" "";
+    }
+    cout << endl;
+  }
+  
+  // Affichage des moyennes
+  cout << ""\nMoyenne de chaque ligne:"" << endl;
+  for (int i = 0; i < rows; ++i) {
+    cout << ""Ligne "" << i << "": "" << fixed << setprecision(2) << moyenneLigne[i] << endl;
+  }
+  
+  cout << ""\nMoyenne de chaque colonne:"" << endl;
+  for (int j = 0; j < cols; ++j) {
+    cout << ""Colonne "" << j << "": "" << fixed << setprecision(2) << moyenneColonne[j] << endl;
+  }
+  
+  cout << ""\nMoyenne globale: "" << fixed << setprecision(2) << moyenneGlobale << endl;
+
+  return 0;
+}"
+9615,"Prob633","Java","Human","CodeNet",0,NA,NA,"import Java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args){
+
+		Scanner sc = new Scanner(System.in);
+
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+
+		String[] judge = {""Even"",""Odd""};
+
+		System.out.print(judge[(a * b)%2]);
+	}
+}"
+1487,"Prob4728","Java","Human","CodeNet",1,NA,NA,"import Java.io.BufferedReader;
+import Java.io.InputStreamReader;
+import Java.io.IOException;
+import Java.io.InputStream;
+import Java.io.OutputStream;
+import Java.io.PrintWriter;
+import Java.util.Arrays;
+import Java.util.StringTokenizer;
+import Java.math.BigInteger;
+import Java.time.chrono.MinguoChronology;
+
+public class Main {
+ static InputReader in;
+ static PrintWriter out;
+ 
+ static class Solution {
+  void solve() throws IOException { 
+   int W = in.nextInt();
+   int H = in.nextInt();
+   int x = in.nextInt();
+   int y = in.nextInt();
+   int r = in.nextInt();
+   
+   if (x < r || y < r || y > H - r || x > W - r) {
+    out.println(""No"");
+   } else {
+    out.println(""Yes"");
+   }
+  }
+ }
+
+ public static void main(String[] args) throws IOException {
+//  ??????
+  in = new InputReader(System.in);
+  out = new PrintWriter(System.out);
+  Solution solver = new Solution();
+  solver.solve();
+  out.close();
+}
+
+ static class InputReader {
+  public BufferedReader br;
+  public StringTokenizer st;
+  
+  public InputReader(InputStream stream) {
+   br = new BufferedReader(new InputStreamReader(stream));
+  }
+  
+  public int nextInt() throws IOException {
+   while (st == null || !st.hasMoreTokens()) {
+    st = new StringTokenizer(br.readLine());
+   }
+   return Integer.parseInt(st.nextToken());
+  }
+  
+  public long nextLong() throws IOException {
+   while (st == null || !st.hasMoreTokens()) {
+    st = new StringTokenizer(br.readLine());
+   }
+   return Long.parseLong(st.nextToken()); 
+  }
+  
+  public String next() throws IOException {
+   while (st == null || !st.hasMoreTokens()) {
+    st = new StringTokenizer(br.readLine());
+   }
+   return st.nextToken();
+  }
+  
+  public double nextDouble() throws IOException {
+   while (st == null || !st.hasMoreTokens()) {
+    st = new StringTokenizer(br.readLine());
+   }
+   return Double.parseDouble(st.nextToken());
+  }
+  
+ }
+ 
+}"
+3183,"Prob220","Java","Human","CodeNet",0,NA,NA,"import Java.util.Scanner;
+
+public class Main {
+	public static void main(String args[]){
+		Scanner in = new Scanner(System.in);
+		int W = in.nextInt();
+		int H = in.nextInt();
+		int x = in.nextInt();
+		int y = in.nextInt();
+		int r = in.nextInt();
+		if(x + r > W || x - r < 0){
+			System.out.println(""No"");
+		}else if(y + r > H || y - r < 0){
+			System.out.println(""No"");
+		}else{
+			System.out.println(""Yes"");
+		}
+	}
+}"
+8636,"Prob1689","Java","Human","CodeNet",0,NA,NA,"import Java.util.Scanner;
+
+public class Main {
+
+	public static String EVEN = ""Even"";
+	public static String ODD = ""Odd"";
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int a1 = s.nextInt();
+		int a2 = s.nextInt();
+
+		String ret;
+		if (a1 * a2 % 2 == 0) {
+			ret = EVEN;
+		} else {
+			ret = ODD;
+		}
+
+		System.out.println(ret);
+	}
+
+}"
+6081,"Prob1655","Java","Human","CodeNet",2,NA,NA,"  import Java.io.*
+  import Java.util.*
+  
+   class JohnnyandtheBeanstalk {
+    public static void main(String[] args) {
+       MyScanner kb = new MyScanner()
+     out = new PrintWriter(new BufferedOutputStream(System.out))
+      
+      int t=kb.nextInt()
+      while(t-->0)
+      {
+        int n=kb.nextInt()
+        int arr[]=new int [n]
+        boolean flage=false
+        for(int i=0
+          arr[i]=kb.nextInt()
+        int rise=0
+       for(int i=0
+       {
+         long maxleaf=(long)Math.pow(2,rise)
+         if(maxleaf<arr[i])
+         {
+           // out.println(""""upper wala if """"+rise)
+           flage=true
+           break
+         }
+         if(i==n-1 && maxleaf>arr[i])
+         {
+           flage=true
+           break
+         }
+         if(maxleaf==arr[i])
+         {
+           //out.println(""""niche wala if """"+maxleaf+"""" """"+arr[i])
+           if(i!=n-1)
+           {
+          flage=true
+          break
+           }
+           else
+             out.println(""""Yes"""")
+         }
+         rise=(int)maxleaf-arr[i]
+       }
+       if(flage)
+         out.println(""""No"""")
+      }
+      
+      out.close()
+    }"
+4505,"Prob523","Java","Human","CodeNet",0,NA,NA,"import Java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner s = new Scanner(System.in);
+    String n = s.next();
+    n = n.replace('1','2');
+    n = n.replace('9','1');
+    n = n.replace('2','9');
+    System.out.println(n);
+  }
+}"
+5869,"Prob1399","Java","Human","CodeNet",1,NA,NA,"import Java.util.Arrays;
+import Java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// Auto-generated method stub
+		Scanner scn = new Scanner(System.in);
+		int a = scn.nextInt();
+		int b = scn.nextInt();
+		int c = scn.nextInt();
+		int[] arr = { a, b, c };
+		Arrays.parallelSort(arr);
+		if (arr[0] == 5 && arr[1] == 5 && arr[2] == 7) {
+			System.out.println(""YES"");
+		} else {
+			System.out.println(""NO"");
+		}
+
+	}
+
+}"
+7981,"Prob3163","Java","Human","CodeNet",0,NA,NA,"import Java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int width = 0, height = 0, x = 0, y = 0, radius = 0;
+		
+		width	= sc.nextInt();
+		height	= sc.nextInt();
+		x		= sc.nextInt();
+		y		= sc.nextInt();
+		radius	= sc.nextInt();
+		
+		int lowerLimmitX = radius;
+		int lowerLimmitY = radius;
+		
+		int upperLimmitX = width		- radius;
+		int upperLimmitY = height	- radius;
+		
+		String result = ""No"";
+		
+		if (		lowerLimmitX <= x
+				&&	x <= upperLimmitX 
+				&&	lowerLimmitY <= y
+				&&	y <= upperLimmitY ) {
+			result = ""Yes"";
+		
+		}
+		
+		System.out.println(result);
+		
+	}
+}"
+5699,"Prob6042","Java","Human","CodeNet",0,NA,NA,"    import Java.io.*;
+    import Java.util.*;
+    public class Main{
+     public static void main(String[] args) throws IOException{
+      BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+      String s = reader.readLine();
+      int[] rec = new int[26];
+      for(int i = 0;i<s.length();i++){
+        rec[s.charAt(i)-'a'] += 1;
+      }
+      System.out.println(solve(rec));
+       
+     }
+      public static String solve(int[] list){
+        int i = 0;
+        while(i<list.length){
+          if(list[i]%2!=0) return ""No"";
+          i++;
+        }
+        return ""Yes"";
+      }
+    }"
+3935,"Prob380","Java","Human","CodeNet",0,NA,NA,"import Java.util.*;
+
+public class Main {
+  public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    
+    int N = sc.nextInt();
+    int M = sc.nextInt();
+    int X = sc.nextInt();
+    
+    int A[] = new int[N+1];
+    for(int i = 1; i <= M; i++) {
+      A[sc.nextInt()] = 1;
+    }
+    
+    int min = Integer.MAX_VALUE;
+    
+    int right = 0;
+    for(int i = X; i <= N; i++) {
+      if( A[i] > 0 ) {
+        right++;
+      }
+    }
+    min = Math.min(min, right);
+    
+    int left = 0;
+    for(int i = X; 0 <= i; i--) {
+      if( A[i] > 0 ) {
+        left++;
+      }
+    }
+    min = Math.min(min, left);
+    
+    System.out.println( min );
+    
+  }
+}"
+2117,"Prob890","Java","AI","ChatGPT-4",0,NA,NA,"public class SqrtAGM {
+  public static double sqrt2UsingAGM(int iterations) {
+    double a = 1.0;
+    double b = Math.sqrt(2);
+    for (int i = 0; i < iterations; i++) {
+      double newA = (a + b) / 2;
+      double newB = Math.sqrt(a * b);
+      a = newA;
+      b = newB;
+    }
+    return a; // Converges to sqrt(2)
+  }
+
+  public static void main(String[] args) {
+    double sqrt2 = sqrt2UsingAGM(100);
+    System.out.println(""Approximation of √2 using AGM = "" + sqrt2);
+  }
+}"
+3118,"Prob1366","Java","AI","ChatGPT-4",2,NA,NA,"import Java.util.Scanner;
+
+public class SommeCarres {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print(""Entrez un entier N: "");
+    int N = scanner.nextInt();
+
+    // Calcul de la somme des carrés des entiers de 1 à N
+    int somme = N * (N + 1) * (2 * N + 1) / 6;
+
+    // Afficher le résultat
+    System.out.println(""u(N) = "" + somme);
+
+    scanner.close();
+  }
+}"
+1010,"Prob4583","Java","AI","ChatGPT-3.5",0,NA,NA,"import Java.util.ArrayList;
+import Java.util.Scanner;
+
+class Customer {
+  String name;
+  String email;
+  String phone;
+
+  public Customer(String name, String email, String phone) {
+    this.name = name;
+    this.email = email;
+    this.phone = phone;
+  }
+
+  @Override
+  public String toString() {
+    return ""Name: "" + name + "", Email: "" + email + "", Phone: "" + phone;
+  }
+}
+
+public class CRMSystem {
+  private static ArrayList<Customer> customers = new ArrayList<>();
+
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    while (true) {
+      System.out.println(""1. Add Customer\n2. View Customers\n3. Update Customer\n4. Exit"");
+      int choice = scanner.nextInt();
+      scanner.nextLine(); // Consume newline
+
+      switch (choice) {
+        case 1:
+          System.out.print(""Enter Name: "");
+          String name = scanner.nextLine();
+          System.out.print(""Enter Email: "");
+          String email = scanner.nextLine();
+          System.out.print(""Enter Phone: "");
+          String phone = scanner.nextLine();
+          customers.add(new Customer(name, email, phone));
+          break;
+        case 2:
+          System.out.println(""Customers:"");
+          for (Customer customer : customers) {
+            System.out.println(customer);
+          }
+          break;
+        case 3:
+          System.out.print(""Enter name to update: "");
+          String updateName = scanner.nextLine();
+          for (Customer customer : customers) {
+            if (customer.name.equals(updateName)) {
+              System.out.print(""Enter new Email: "");
+              customer.email = scanner.nextLine();
+              System.out.print(""Enter new Phone: "");
+              customer.phone = scanner.nextLine();
+              break;
+            }
+          }
+          break;
+        case 4:
+          System.exit(0);
+        default:
+          System.out.println(""Invalid choice."");
+      }
+    }
+  }
+}"
+7846,"Prob5100","Java","AI","ChatGPT-3.5",1,NA,NA,"import Java.util.Scanner;
+
+public class NombrePremier {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print(""Entrez un entier : "");
+    int N = scanner.nextInt();
+    
+    boolean estPremier = true;
+    
+    if (N <= 1) {
+      estPremier = false;
+    } else {
+      for (int i = 2; i <= Math.sqrt(N); i++) {
+        if (N % i == 0) {
+          estPremier = false;
+          break;
+        }
+      }
+    }
+    
+    // Afficher si le nombre est premier ou non
+    if (estPremier) {
+      System.out.println(N + "" est un nombre premier."");
+    } else {
+      System.out.println(N + "" n'est pas un nombre premier."");
+    }
+    
+    scanner.close();
+  }
+}"
+2953,"Prob6698","Java","AI","ChatGPT-4",0,NA,NA,"int i = 0;
+do {
+  System.out.println(i);
+  i++;
+} while (i < 5);"
+5972,"Prob1160","Java","AI","ChatGPT-4",0,NA,NA,"import Java.util.Scanner;
+
+public class LineEquations {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    
+    System.out.print(""Entrez le coefficient directeur de la première ligne (m1) : "");
+    double m1 = scanner.nextDouble();
+    
+    System.out.print(""Entrez le coefficient directeur de la deuxième ligne (m2) : "");
+    double m2 = scanner.nextDouble();
+    
+    if (m1 == m2) {
+      System.out.println(""Les lignes sont parallèles."");
+    } else if (m1 * m2 == -1) {
+      System.out.println(""Les lignes sont perpendiculaires."");
+    } else {
+      System.out.println(""Les lignes ne sont ni parallèles ni perpendiculaires."");
+    }
+  }
+}"
+7752,"Prob5882","Java","AI","ChatGPT-4",0,NA,NA,"public class LnLimit {
+  public static double lnLimit(double x, int n) {
+    return n * (Math.pow(x, 1.0 / n) - 1);
+  }
+
+  public static void main(String[] args) {
+    double ln2 = lnLimit(2, 100000);
+    System.out.println(""Approximation of ln(2) using limit = "" + ln2);
+  }
+}"
+5505,"Prob6688","Java","AI","ChatGPT-4",0,NA,NA,"import Java.io.*;
+import Java.net.URL;
+import Java.net.HttpURLConnection;
+
+public class FileDownloader {
+  public static void log(String message) {
+    try (FileWriter writer = new FileWriter(""download_log.txt"", true)) {
+      writer.write(message + ""\n"");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public static boolean downloadFile(String fileURL, String saveDir) {
+    try {
+      URL url = new URL(fileURL);
+      HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+      httpConn.setRequestMethod(""GET"");
+      if (httpConn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+        try (InputStream inputStream = httpConn.getInputStream();
+           FileOutputStream outputStream = new FileOutputStream(saveDir)) {
+          byte[] buffer = new byte[4096];
+          int bytesRead;
+          while ((bytesRead = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, bytesRead);
+          }
+        }
+        return true;
+      } else {
+        log(""Download failed: Server returned HTTP code "" + httpConn.getResponseCode());
+      }
+    } catch"
+5205,"Prob5371","Java","AI","ChatGPT-3.5",5,NA,NA,"import Java.util.Scanner;
+
+public class CategorieEnfant {
+  public static void main(String[] args) {
+    // Création d'un objet Scanner pour lire les entrées utilisateur
+    Scanner scanner = new Scanner(System.in);
+
+    // Demander à l'utilisateur l'âge de l'enfant
+    System.out.print(""Entrez l'âge de l'enfant : "");
+    int age = scanner.nextInt();
+
+    // Détermination de la catégorie en fonction de l'âge
+    String categorie;
+    if (age >= 6 && age <= 7) {
+      categorie = ""poussin"";
+    } else if (age >= 8 && age <= 9) {
+      categorie = ""pupille"";
+    } else if (age >= 10 && age <= 11) {
+      categorie = ""minime"";
+    } else if (age >= 12) {
+      categorie = ""cadet"";
+    } else {
+      categorie = ""âge non valide pour les catégories définies"";
+    }
+
+    // Afficher la catégorie
+    System.out.println(""L'enfant est dans la catégorie : "" + categorie);
+
+    // Fermer le scanner
+    scanner.close();
+  }
+}"
+277,"Prob1359","Java","AI","ChatGPT-4",0,NA,NA,"import Java.util.HashMap;
+import Java.util.Map;
+import Java.util.Scanner;
+
+public class MatchingQuiz {
+  public static void main(String[] args) {
+    Map<Character, Integer> letterMap = new HashMap<>();
+    for (char c = 'A'; c <= 'Z'; c++) {
+      letterMap.put(c, c - 'A' + 1);
+    }
+
+    Scanner scanner = new Scanner(System.in);
+    int score = 0;
+
+    for (char c = 'A'; c <= 'Z'; c++) {
+      System.out.print(""What is the number for "" + c + ""? "");
+      int answer = scanner.nextInt();
+      if (answer == letterMap.get(c)) {
+        score++;
+        System.out.println(""Correct!"");
+      } else {
+        System.out.println(""Wrong! The correct answer is "" + letterMap.get(c) + ""."");
+      }
+    }
+
+    System.out.println(""Your total score: "" + score + ""/26"");
+    scanner.close();
+  }
+}"
+4410,"Prob6668","Python","Human","CodeNet",1,NA,NA,"MOD = 10 ** 9 + 7
+
+
+def prepare(n):
+  global MOD
+  modFacts = [0] * (n + 1)
+  modFacts[0] = 1
+  for i in range(n):
+    modFacts[i + 1] = (modFacts[i] * (i + 1)) % MOD
+
+  invs = [1] * (n + 1)
+  invs[n] = pow(modFacts[n], MOD - 2, MOD)
+  for i in range(n, 1, -1):
+    invs[i - 1] = (invs[i] * i) % MOD
+
+  return modFacts, invs
+
+
+def pathVar(sx, sy, gx, gy):
+  x = gx - sx
+  y = gy - sy
+  rst = modFacts[x + y]
+  rst *= invs[x] * invs[y]
+  rst %= MOD
+  return rst
+
+
+H, W, A, B = map(int, input().split())
+# H -= 1; W -= 1
+modFacts, invs = prepare(H + W)
+
+cnt = 0
+while A > 0 and B > 0:
+  x = H - A
+  y = B - 1
+  path1 = pathVar(0, 0, x, y)
+  path2 = pathVar(x, y, H - 1, W - 1)
+  cnt += path1 * path2
+  cnt %= MOD
+  A -= 1; B -= 1
+
+ans = pathVar(0, 0, H - 1, W - 1)
+print((ans - cnt) % MOD)"
+268,"Prob5447","Python","Human","CodeNet",0,NA,NA,"from math import gcd
+
+a, b, k = list(map(int, input().split()))
+g = gcd(a, b)
+l = []
+i = 1
+while i * i <= g:
+  if g % i == 0:
+    l.append(i)
+    if i != g // i:
+      l.append(g // i)
+  i += 1
+l.sort()
+print(l[-k])"
+8025,"Prob307","Python","Human","CodeNet",0,NA,NA,"n,k,c=map(int,input().split())
+s=input()
+l=list();r=list()
+nex=0
+for i in range(n):
+	if i<nex:
+		continue
+	if s[i]==""o"":
+		nex=i+c+1
+		l.append(i)
+		if len(l)==k:
+			break
+nex=-1
+for i in range(n):
+	if i<nex:
+		continue
+	if s[-i-1]==""o"":
+		nex=i+c+1
+		r.append(n-i-1)
+		if len(r)==k:
+			break
+r=r[::-1]
+for i in range(k):
+	if l[i]==r[i]:
+		print(l[i]+1)"
+766,"Prob3817","Python","Human","CodeNet",0,NA,NA,"s=str(input())
+dst=s.translate({
+  ord('1'):'9',
+  ord('9'):'1',
+  })
+print(dst)"
+804,"Prob354","Python","Human","CodeNet",0,NA,NA,"a,b,k=map(int,input().split())
+x=min(a,b)
+l=[]
+for i in range(1,x+1):
+  if a%i==0 and b%i==0:
+    l.append(i)
+y=len(l)
+print(l[y-k])"
+8454,"Prob2215","Python","Human","CodeNet",0,NA,NA,"import math
+import sys
+
+while True:
+	try:
+		a,b = map(int, input().split())
+		print(len(str(a+b)))
+	except EOFError:
+		break"
+559,"Prob5956","Python","Human","CodeNet",0,NA,NA,"import sys
+import copy
+import math
+import itertools
+import numpy as np
+l = [int(c) for c in input().split()]
+N=l[0]
+M=l[1]
+LR=[list(map(int,input().split())) for c in range(M)]
+small = 0
+large = N
+for i in range(M):
+  if small<LR[i][0]:
+    small=LR[i][0]
+  
+  if large>LR[i][1]:
+    large=LR[i][1]
+
+if small <= large:
+  print(large-small+1)
+else:
+  print(0)s"
+8316,"Prob1769","Python","Human","CodeNet",0,NA,NA,"import sys
+w,h,x,y = map(int, input().split())
+
+if (x,y) in [(w,0), (0,h), (0,0), (w,h)]:
+  print(w*h/2, 0)
+  sys.exit()
+
+if x/w+y/h==1 or y*w==h*x:
+  print(w*h/2, 0)
+  sys.exit()
+
+s1 = min(x*h, (w-x)*h)
+s2 = min(y*w, (h-y)*w)
+
+if s1==s2:
+  print(s1, 1)
+else:
+  print(max(s1,s2), 0)"
+6139,"Prob3913","Python","Human","CodeNet",0,NA,NA,"times = int(input())
+tmp = times
+count = 0
+while tmp >= 15:
+  tmp -= 15
+  count += 1
+print(times * 800 - count * 200)"
+80,"Prob1124","Python","Human","CodeNet",0,NA,NA,"A,B,K=map(int,input().split())
+
+def ans120(A:int, B:int, K:int):
+  l=sorted([A,B])
+  ans_list=[]
+  for i in range(1,l[1]+1):
+    if A%i==0 and B%i==0:
+      ans_list.append(i)
+  return ans_list[-K]
+
+print(ans120(A,B,K))"
+9380,"Prob3491","Python","AI","ChatGPT-4",0,NA,NA,"def compter_mots():
+  chaine = input(""Entrez une chaîne de caractères: "")
+  mots = chaine.split()
+  nombre_mots = len(mots)
+  print(""Le nombre de mots dans la chaîne est:"", nombre_mots)
+
+compter_mots()"
+8669,"Prob2936","Python","AI","ChatGPT-4",3,NA,NA,"def main():
+  # Read the dimensions and the sum to avoid
+  x = int(input())
+  y = int(input())
+  z = int(input())
+  n = int(input())
+  
+  # Generate the list of coordinates using list comprehensions
+  coordinates = [[i, j, k] for i in range(x) for j in range(y) for k in range(z) if i + j + k != n]
+  
+  # Print the list of coordinates
+  print(coordinates)
+
+if __name__ == ""__main__"":
+  main()"
+6783,"Prob4677","Python","AI","ChatGPT-3.5",4,NA,NA,"import pandas as pd
+
+# Reading Excel file
+file_path = 'your_file.xlsx'
+df = pd.read_excel(file_path, sheet_name='Sheet1')
+
+# Displaying data types
+print(df.dtypes)
+
+# Filtering data
+filtered_df = df[df['Column1'] > 100]
+print(filtered_df)
+
+# Writing to a new Excel file
+filtered_df.to_excel('filtered_data.xlsx', index=False)"
+9148,"Prob1012","Python","AI","ChatGPT-4",2,NA,NA,"import networkx as nx
+
+# Create a graph with weights
+G = nx.Graph()
+G.add_weighted_edges_from([(1, 2, 1), (2, 3, 2), (1, 3, 2), (3, 4, 1)])
+
+# Compute shortest path
+shortest_path = nx.dijkstra_path(G, source=1, target=4)
+print(""Shortest path from 1 to 4:"", shortest_path)"
+6669,"Prob6404","Python","AI","ChatGPT-3.5",4,NA,NA,"import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+# Parameters
+g = 9.81 # Acceleration due to gravity
+dt = 0.05 # Time step
+y_init = 10.0 # Initial height
+v_init = 0.0 # Initial velocity
+
+# Lists to hold time, height, and velocity
+t_values = []
+y_values = []
+v = v_init
+y = y_init
+
+# Simulation loop
+for t in np.arange(0, 5, dt):
+  t_values.append(t)
+  y_values.append(y)
+  v += -g * dt # Update velocity
+  y += v * dt  # Update height
+  if y < 0: # Bounce
+    y = 0
+    v = -v * 0.8 # Dampen the bounce
+
+# Animation
+fig, ax = plt.subplots()
+line, = ax.plot([], [], 'ro', markersize=10)
+ax.set_xlim(0, 5)
+ax.set_ylim(0, 12)
+
+def init():
+  line.set_data([], [])
+  return line,
+
+def update(frame):
+  line.set_data(t_values[frame], y_values[frame])
+  return line,
+
+ani = animation.FuncAnimation(fig, update, frames=len(t_values), init_func=init, blit=True)
+plt.title('Bouncing Ball Simulation')
+plt.xlabel('Time (s)')
+plt.ylabel('Height (m)')
+plt.show()"
+606,"Prob6143","Python","AI","ChatGPT-3.5",0,NA,NA,"import numpy as np
+
+def lu_decomposition(A):
+  n = A.shape[0]
+  L = np.zeros_like(A)
+  U = np.zeros_like(A)
+
+  for i in range(n):
+    L[i][i] = 1 # Diagonal of L is 1
+    for j in range(i, n):
+      U[i][j] = A[i][j] - np.dot(L[i, :i], U[:i, j])
+    for j in range(i+1, n):
+      L[j][i] = (A[j][i] - np.dot(L[j, :i], U[:i, i])) / U[i][i]
+
+  return L, U
+
+if __name__ == ""__main__"":
+  A = np.array([[4, 3], [6, 3]], dtype=float)
+  L, U = lu_decomposition(A)
+  print(""L:\n"", L)
+  print(""U:\n"", U)"
+6178,"Prob3708","Python","AI","ChatGPT-3.5",0,NA,NA,"import pandas as pd
+
+data = pd.Series([-2, -5, 0, 3, -4])
+absolute_values = data.abs()
+print(""Absolute values using Pandas:"", absolute_values)"
+2295,"Prob3295","Python","AI","ChatGPT-3.5",1,NA,NA,"def trouver_min_max(liste):
+  if not liste:
+    return None, None
+  
+  min_val = liste[0]
+  max_val = liste[0]
+  
+  for valeur in liste:
+    if valeur < min_val:
+      min_val = valeur
+    if valeur > max_val:
+      max_val = valeur
+  
+  return min_val, max_val
+
+# Exemple d'utilisation
+liste = [5, 3, 8, 1, 9]
+min_val, max_val = trouver_min_max(liste)
+print(f""Le plus petit nombre est : {min_val}"")
+print(f""Le plus grand nombre est : {max_val}"")"
+9401,"Prob2574","Python","AI","ChatGPT-4",0,NA,NA,"class Robot:
+  def __init__(self, boundary):
+    self.x = 0
+    self.y = 0
+    self.boundary = boundary
+
+  def move(self, direction):
+    if direction == ""up"" and self.y < self.boundary:
+      self.y += 1
+    elif direction == ""down"" and self.y > -self.boundary:
+      self.y -= 1
+    elif direction == ""left"" and self.x > -self.boundary:
+      self.x -= 1
+    elif direction == ""right"" and self.x < self.boundary:
+      self.x += 1
+    elif direction == ""up-left"" and self.x > -self.boundary and self.y < self.boundary:
+      self.x -= 1
+      self.y += 1
+    elif direction == ""up-right"" and self.x < self.boundary and self.y < self.boundary:
+      self.x += 1
+      self.y += 1
+    elif direction == ""down-left"" and self.x > -self.boundary and self.y > -self.boundary:
+      self.x -= 1
+      self.y -= 1
+    elif direction == ""down-right"" and self.x < self.boundary and self.y > -self.boundary:
+      self.x += 1
+      self.y -= 1
+    else:
+      print(""Move out of bounds!"")
+
+  def get_position(self):
+    return self.x, self.y
+
+robot = Robot(boundary=5)
+
+while True:
+  command = input(""Enter command (up, down, left, right, up-left, up-right, down-left, down-right) or 'exit': "")
+  if command == 'exit':
+    break
+  robot.move(command)
+  print(f""Current position: {robot.get_position()}"")"
+6428,"Prob426","Python","AI","ChatGPT-4",0,NA,NA,"from functools import reduce
+
+def product_in_range(numbers, lower, upper):
+  if lower > upper:
+    raise ValueError(""Lower bound must be less than or equal to upper bound."")
+  
+  filtered_numbers = [n for n in numbers if lower <= n <= upper]
+  return reduce(lambda x, y: x * y, filtered_numbers, 1) if filtered_numbers else 0
+
+numbers = [45, 55, 60, 72, 50, 68, 40, 75]
+try:
+  print(""Product:"", product_in_range(numbers, 50, 70))
+except ValueError as e:
+  print(e)"

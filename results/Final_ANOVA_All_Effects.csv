@@ -1,0 +1,7 @@
+Outcome,Term,DF_effect,DF_error,F_value,P_value,Partial_Eta_Squared,Holm_P_within_outcome
+Line_Count,Language adjusted for origin,3,9995,532.0923858,7.76177129616598e-321,0.137713656,2.32853138884979e-320
+Line_Count,Origin adjusted for language,1,9995,47.94855676,4.64E-12,0.004774351,4.64E-12
+Line_Count,Language x origin interaction,3,9992,69.59594659,1.54E-44,0.020467815,3.09E-44
+Character_Count,Language adjusted for origin,3,9995,601.6139017,0,0.152954739,0
+Character_Count,Origin adjusted for language,1,9995,544.5146626,2.59E-117,0.051664112,5.18E-117
+Character_Count,Language x origin interaction,3,9992,105.1829558,4.84E-67,0.030613376,4.84E-67

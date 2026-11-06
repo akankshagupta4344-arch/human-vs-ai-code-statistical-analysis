@@ -1,0 +1,7 @@
+.RData
+.Rhistory
+.Rproj.user/
+__MACOSX/
+.DS_Store
+Thumbs.db
+*.tmp
